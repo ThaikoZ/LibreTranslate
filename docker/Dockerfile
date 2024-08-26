@@ -25,6 +25,9 @@ FROM python:3.11.9-slim-bullseye
 ARG with_models=false
 ARG models=""
 
+ENV LT_UPDATE_MODELS=true \
+    LT_LOAD_ONLY=en,pl
+
 RUN addgroup --system --gid 1032 libretranslate && adduser --system --uid 1032 libretranslate && mkdir -p /home/libretranslate/.local && chown -R libretranslate:libretranslate /home/libretranslate/.local
 USER libretranslate
 
